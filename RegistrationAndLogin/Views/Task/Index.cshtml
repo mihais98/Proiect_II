@@ -1,0 +1,87 @@
+﻿@model IEnumerable<RegistrationAndLogin.Models.Task>
+
+
+
+<div class="blurred-bg-container">
+    <div class=" content">
+        <div class="text">
+            <div class="card" style="width: 80rem; align-content:center;">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TaskName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PrijectName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SupervisorName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.StartDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.EndTime)
+                        </th>
+
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TaskName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrijectName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SupervisorName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StartDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.EndTime)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.TaskID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.TaskID }) |
+                            
+
+                                <button class="btn btn-sm btn-danger" data-toggle="modal" onclick="RenderActions('/Task/Delete/' + @item.TaskID)" data-target="#modalCreate">Delete</button>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+
+
+
+
+
+                <div>
+                    @Html.ActionLink("CreateTask ", "Create", "Task")
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalCreate" class="modal fade" role="dialog" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="OpenDialog" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function RenderActions(RenderActionstring) {
+        $("#OpenDialog").load(RenderActionstring);
+    };
+</script>
+

@@ -1,0 +1,84 @@
+﻿@model RegistrationAndLogin.Models.Task
+
+<div class="modal-header">
+    <h4 class="modal-title">Are you sure you want to delete this?</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@**<h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Task</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TaskName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaskName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrijectName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrijectName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SupervisorName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SupervisorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StartDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EndTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserID)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>*@
+
+<div class="modal-body">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color center-block">
+            <button type="button" class="btn btn-success" data-dismiss="modal">NO</button>
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+</div>
